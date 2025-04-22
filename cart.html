@@ -86,3 +86,7 @@
     <div class="cart-container" id="cartContainer"></div>
     <div class="total-section" id="totalPrice">Total: ₹0</div>
     <button class="checkout-btn">Proceed to Checkout</button>
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const cartContainer = document.getElementById("cartContainer");
+        const totalPriceEl = document.getElementById("totalPrice");   </Script>

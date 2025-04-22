@@ -222,3 +222,10 @@ button.white{
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     }
+#about-head {
+    display: flex;
+    }
+#about-head .about{
+    width: 50%;
+    padding-left: 40px;
+    }

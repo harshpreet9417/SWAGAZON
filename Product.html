@@ -258,3 +258,24 @@
          price: getRandomPrice(),
          description: descriptions[id % descriptions.length]
        };
+
+       document.getElementById("productImage").src = product.image;
+       document.getElementById("rating").textContent = product.rating;
+       document.getElementById("description").textContent = product.description;
+       document.getElementById("price").textContent = `Price: ₹${product.price}`;
+
+   
+     
+       document.querySelector(".cart-btn").addEventListener("click", () => {
+         let cart = JSON.parse(localStorage.getItem("cart")) || [];
+         cart.push(product);
+         localStorage.setItem("cart", JSON.stringify(cart));
+         alert("Item added to cart!");
+       });
+     } else {
+       document.querySelector(".container").innerHTML = "<h2>Product not found</h2>";
+     }
+   </script>
+   
+ </body>
+ </html>

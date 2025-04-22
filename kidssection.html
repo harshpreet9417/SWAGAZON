@@ -99,6 +99,15 @@
     document.querySelector('.' + className).scrollIntoView({ behavior: 'smooth' });
   }
 </script>
+<script>
+  function addToCart(product) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Item added to cart!");
+  }
+</script>
+
 <body>
 
   <header>🧸 Kids Section</header><br>
@@ -110,16 +119,22 @@
         <img src="https://i.pinimg.com/originals/a8/e8/cf/a8e8cf2553d0f3f8cea9de294fa9639c.jpg" alt="simple lightweight tee for summers">
         <div class="product-info">
           <h3>GREY TEE</h3>
+          <p>8-12yrs</p>
           <p>₹299</p>
       
-          <button class="add-btn">Add to cart</button>
+          <button class="add-btn"onclick="addToCart({
+            image: 'images/kids1.jpg',
+            description: 'Cute Kids Dress',
+            price: 999,
+            rating: 4.7
+          })">Add to cart</button>
         </div>
       </div>
       <div class="product-card">
         <img src="https://th.bing.com/th/id/OIP._NE-buRmz5RL_f-WHQo6HgHaHo?rs=1&pid=ImgDetMain" alt="perfect pinkish tshirt for girls">
         <div class="product-info">
           <h3>PINK UNICORN TEE</h3>
-          <h3>PINK UNICORN TEE </h3>
+          <p>8-13yrs</p>
           <p>₹399</p>
           <button class="add-btn">Add to cart</button>
         </div>
@@ -128,6 +143,7 @@
         <img src="https://i.pinimg.com/originals/2a/df/f4/2adff48e0d870c85bc718408b3232142.jpg" alt="boys would love it a lot ">
         <div class="product-info">
           <h3>CUTE DINOSAUR TEE</h3>
+          <p>6-10yrs</p>
           <p>₹299</p>
           <button class="add-btn">Add to cart</button>
         </div>
@@ -136,6 +152,7 @@
         <img src="https://th.bing.com/th/id/OIP.sypC1d43SKqi_QCKdsphagHaHa?rs=1&pid=ImgDetMain" alt="superman's tshirt for boys">
         <div class="product-info">
           <h3>BLUE SUPERMAN TEE</h3>
+          <p>5-8yrs</p>
           <p>₹199</p>
           <button class="add-btn">Add to cart</button>
         </div>
@@ -144,6 +161,7 @@
         <img src="https://th.bing.com/th/id/OIP.rHUUFtqTwBs9lff2JmgnOgHaHa?rs=1&pid=ImgDetMain" alt="casual barbie tee for girls">
         <div class="product-info">
           <h3>PINK BARBIE TEE</h3>
+          <p>6-10yrs</p>
           <p>₹199</p>
           <button class="add-btn">Add to cart</button>
         </div>
@@ -152,6 +170,7 @@
         <img src="https://m.media-amazon.com/images/I/81xOBrMZadL._AC_UL1500_.jpg" alt="girls fav animal: unicorn tee">
         <div class="product-info">
           <h3>LAVENDER UNICORN TEE</h3>
+          <p>8-10yrs</p>
           <p>₹199</p>
           <button class="add-btn">Add to cart</button>
         </div>
@@ -160,6 +179,7 @@
         <img src="https://th.bing.com/th/id/OIP.Z41MP_N673Wccuff47-pewHaHa?rs=1&pid=ImgDetMain" alt="mickey mouse tshirt">
         <div class="product-info">
           <h3>MICKEY MOUSE TEE</h3>
+          <p>7-10yrs</p>
           <p>₹299</p>
           <button class="add-btn">Add to cart</button>
         </div>
@@ -168,6 +188,7 @@
         <img src="https://i.pinimg.com/originals/71/28/f7/7128f7e61e09e2af54bc717f86c436a0.jpg" alt="perfect tee for boys who play soccer">
         <div class="product-info">
           <h3>SOCCER PLAYER TEE</h3>
+          <p>8-12yrs</p>
           <p>₹399</p>
           <button class="add-btn">Add to cart</button>
         </div>
@@ -176,6 +197,7 @@
         <img src="https://i.pinimg.com/originals/cc/f8/31/ccf83184977c465735f867774d145eb5.jpg" alt="blue tshirt">
         <div class="product-info">
           <h3>NAVY BLUE TEE</h3>
+          <p>8-12yrs</p>
           <p>₹299</p>
           <button class="add-btn">Add to cart</button>
         </div>
@@ -184,6 +206,7 @@
         <img src="https://i.pinimg.com/originals/de/f3/5c/def35c7d3115a48de1b87e38ce754b72.jpg" alt="pink color tshirt for girls ">
         <div class="product-info">
           <h3>PINK GIRL TEE</h3>
+          <p>6-10yrs</p>
           <p>₹299</p>
           <button class="add-btn">Add to cart</button>
         </div>
@@ -197,6 +220,7 @@
         <img src="https://i5.walmartimages.com/asr/c3bf582e-0c70-4477-a8d6-7dde9936a725_1.ffa1fbe211503774827c878d8ea962ff.jpeg" alt="perfect winter jackets for kids">
         <div class="product-info">
           <h3>ORANGE PUFFER JACKET</h3>
+          <p>6-9yrs</p>
           <p>₹599</p>
           <button class="add-btn">Add to cart</button>
         </div>
@@ -207,6 +231,7 @@
       <img src="https://th.bing.com/th/id/R.bc2d428ad8badb9d3ac0ebcea0f62972?rik=bugTBg6E55hOpw&riu=http%3a%2f%2fwww.carters.com%2fdw%2fimage%2fv2%2fAAMK_PRD%2fon%2fdemandware.static%2f-%2fSites-carters_master_catalog%2fdefault%2fdw3b2ed3c3%2fproductimages%2fC2167202.jpg%3fsw%3d2000&ehk=bQqOKl7NJAxpTtJSTdYGtdm6Q2zriBguLBNec4bEWNU%3d&risl=&pid=ImgRaw&r=0" alt="warm jacket for girls">
       <div class="product-info">
         <h3>PINK PUFFER JACKET</h3>
+        <p>8-12yrs</p>
         <p>₹699</p>
         <button class="add-btn">Add to cart</button>
       </div>
@@ -216,6 +241,7 @@
       <img src="https://tse3.mm.bing.net/th/id/OIP.v9C98f_T5p0oDUsN4kW38QHaHa?rs=1&pid=ImgDetMain" alt="stylish denim jacket for boys">
       <div class="product-info">
         <h3>DENIM JACKET</h3>
+        <p>8-12yrs</p>
         <p>₹599</p>
         <button class="add-btn">Add to cart</button>
       </div>
@@ -223,6 +249,7 @@
       <img src="https://i.pinimg.com/originals/ed/6c/fc/ed6cfc310e3f5cfd9174b7a429978d28.jpg" alt="casual jackets for winters">
       <div class="product-info">
         <h3>BROWN JACKET</h3>
+        <p>8-12yrs</p>
         <p>₹599</p>
         <button class="add-btn">Add to cart</button>
       </div>
@@ -231,6 +258,7 @@
       <img src="https://tse2.mm.bing.net/th/id/OIP.zpsIWBpMZ0PKY2KEHfLCowHaHa?w=800&h=800&rs=1&pid=ImgDetMain" alt="blue color jacket">
       <div class="product-info">
         <h3>BLUE PUFFER JACKET</h3>
+        <p>8-12yrs</p>
         <p>₹699</p>
         <button class="add-btn">Add to cart</button>
       </div>
@@ -240,6 +268,7 @@
       <img src="https://tse4.mm.bing.net/th/id/OIP.TaqPQA3q0OM-jLUu5gO0bAHaHa?w=1000&h=1000&rs=1&pid=ImgDetMain" alt="warm jacket for boys">
       <div class="product-info">
         <h3>RED-BLACK JACKET</h3>
+        <p>6-10yrs</p>
         <p>₹999</p>
         <button class="add-btn">Add to cart</button>
       </div>
@@ -249,6 +278,7 @@
       <img src="https://img.abercrombie.com/is/image/anf/KIC_244-2618-0292-062_prod1?$product-medium-anf$" alt="aesthetic color jacket for girls">
       <div class="product-info">
         <h3>DUSTY ROSE JACKET</h3>
+        <p>10-13yrs</p>
         <p>₹799</p>
         <button class="add-btn">Add to cart</button>
       </div>
@@ -257,6 +287,7 @@
       <img src="https://i.pinimg.com/736x/3e/0e/a8/3e0ea8024608207c5374cd6ac04984d4--toddler-shoes-girl-utility-jacket.jpg" alt="bright color jacket ">
       <div class="product-info">
         <h3>LIGHT RED JACKET</h3>
+        <p>8-12yrs</p>
         <p>₹699</p>
         <button class="add-btn">Add to cart</button>
       </div>
@@ -265,6 +296,7 @@
       <img src="https://tse2.mm.bing.net/th/id/OIP.oCjIUTJI4lcVuh17TsrztAHaHa?w=1000&h=1000&rs=1&pid=ImgDetMain" alt="party wear jacket ">
       <div class="product-info">
         <h3>BLACK LEATHER JACKET</h3>
+        <p>8-12yrs</p>
         <p>₹799</p>
         <button class="add-btn">Add to cart</button>
       </div>
@@ -273,6 +305,7 @@
       <img src="https://images.riverisland.com/is/image/RiverIsland/mini-boys-black-faux-leather-bomber-jacket_489597_main?$ProductListingPage$" alt="party wear jacket">
       <div class="product-info">
         <h3>BLACK LEATHER JACKET</h3>
+        <p>6-10yrs</p>
         <p>₹999</p>
         <button class="add-btn">Add to cart</button>
       </div>
@@ -284,6 +317,7 @@
       <img src="https://ae01.alicdn.com/kf/HTB19ghnPVXXXXcbaXXXq6xXFXXX5/Boys-Pants-Summer-Calf-length-Pants-Children-100-Cotton-Trousers-Baby-Boys-Pants-Summer-Elastic-Waist.jpg" alt="perfect short pants for summers">
       <div class="product-info">
         <h3>KHAKI COLOR PANTS</h3>
+        <p>8-12yrs</p>
         <p>₹999</p>
         <button class="add-btn">Add to cart</button>
       </div>
@@ -292,6 +326,7 @@
       <img src="https://www.surfstitch.com/on/demandware.static/-/Sites-ss-master-catalog/default/dw0f52b8ab/images/TBP2054-BLBLUW/BLUE-WASH-KIDS-BOYS-ROCK-YOUR-KID-PANTS-TBP2054-BLBLUW_1.JPG" alt="casual pants">
       <div class="product-info">
         <h3>DENIM PANTS</h3>
+        <p>8-12yrs</p>
         <p>₹999</p>
         <button class="add-btn">Add to cart</button>
       </div>
@@ -300,6 +335,7 @@
       <img src="https://th.bing.com/th/id/R.57c78040b0833b54826c90ad0b65dd3a?rik=H62zbrjTvThV2g&riu=http%3a%2f%2fcutiesapparel.com%2fcdn%2fshop%2ffiles%2fXC_N_DU_SISY_1II_P_tmb.jpg%3fv%3d1688173910&ehk=cz0IY8fdawmdAcGBs6jFtELwYIT3XWJm9ZEGLDg7rMg%3d&risl=&pid=ImgRaw&r=0" alt="stylish bell bottoms for girls">
       <div class="product-info">
         <h3>PINK BELL BOTTOMS</h3>
+        <p>6-10yrs</p>
         <p>₹999</p>
         <button class="add-btn">Add to cart</button>
       </div>
@@ -308,6 +344,7 @@
       <img src="https://tse2.mm.bing.net/th/id/OIP.hSPQVCw4m8jzZb1z4Kf_LQHaHa?w=1000&h=1000&rs=1&pid=ImgDetMain" alt="stylish bell bottoms for girls">
       <div class="product-info">
         <h3>PARCHMENT BELL BOTTOMS</h3>
+        <p>6-10yrs</p>
         <p>₹999</p>
         <button class="add-btn">Add to cart</button>
       </div>
@@ -316,6 +353,7 @@
       <img src="https://m.media-amazon.com/images/I/61osglqaRoL._UL1200_.jpg" alt="warm pants">
       <div class="product-info">
         <h3>DENIM WINTER PANTS</h3>
+        <p>8-12yrs</p>
         <p>₹999</p>
         <button class="add-btn">Add to cart</button>
       </div>

@@ -83,3 +83,22 @@
     bottom: 20px;
     right:10px;
 }
+#sm-banner{
+    display: flex;
+    justify-content:space-evenly;
+    flex-wrap: wrap;
+}
+
+#sm-banner .banner-box{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:flex-start;
+    text-align:center;
+    background-image: url("https://www.beyours.in/cdn/shop/files/knitshirt-desktop-banner.jpg?v=1692259606&width=1500");
+    min-width:500px;
+    height: 50vh;
+    background-size: cover;
+    /* background-position:center; */
+    padding: 30px;
+}

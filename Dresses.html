@@ -136,4 +136,93 @@
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN4x6H_OmBtgsIeg-xrO3hTj3nv0FPoGRIqg&s",
       "https://www.alamodelabel.in/cdn/shop/files/4F1F0025-7CA7-4266-944E-42AF35727660_600x.jpg?v=1735460744",
       "https://www.fabfunda.com/blog/wp-content/uploads/2023/10/Asymmetrical-Gowns-630x840.jpg",
+      "https://www.alamodelabel.in/cdn/shop/files/090BEBF8-6C84-4C56-8D35-ECC225934A6B_600x.jpg?v=1740502654",
+      "https://5.imimg.com/data5/SELLER/Default/2023/4/298880061/EY/MO/ZC/144923424/26-1-8d6e8424-3ad8-4fef-8329-dc4ee5234302-500x500.jpg",
+      "https://img101.savana.com/goods-pic/91079b3d1adc4289a877656560f6eaa6UR_w540_h720_q85.webp",
      ];
+
+  const dressTitles = [
+  "Designer Lehenga",
+  "Pink Festive Dress",
+  "Black Puff Sleeve Mini ",
+  "Floral Sleeveless",
+  "Elegant White Midi",
+  "Denim Puff Sleeve",
+  "White Anarkali Red Florals", 
+  "Maroon Embroidered Dress",
+  "Sky Blue Straight Kurta",
+  "Black Slit Evening Gown",
+  "Ruched Bodycon Dress",
+  "Traditional Kerala Lehenga",
+  "Embroidered Gown",
+  "Lilac Lehenga",
+  "Rajasthani Ghagra",
+  "Yellow & Pink Lehenga",
+  "Green Patiala Suit",
+  "Maroon Salwar Suit",
+  "Velvet Kurta Set",
+  "Off-White Kurti",
+  "Black Crop Top",
+  "Peach Kurti with Jeans",
+  "Pink Printed Suit",
+  "Green Anarkali",
+  "Embroidered Gown",
+  "Bridal heavy embroidery lehenga",
+  "Leather Skirt",
+  "White Tennis-style Dress",
+  "Green Heavy Bridal Suit",
+  "Black Saree with Gold Border",
+  "Red traditional dress",
+  "Pink Jumpsuit",
+  "Brown sleeveless jumpsuit",
+  "Green strapless beach dress",
+  "Denim buttoned jumpsuit",
+  "Black corset crop top",
+  "Yellow Slit Dress",
+  "Vintage Royal Gown",
+  "Classic Portrait Dress",
+  "Denim Co-ord Set",
+  "Rust Trench Coat",
+  "Powder Blue Trench",
+  "Black Puffer Jacket",
+  "Teal Flare Dress",
+  "Orange Printed Anarkali",
+  "Tropical Floral Dress",
+  "Emerald Satin Dress",
+  "Ivory Lace Lehenga",
+  "Polka Dot Summer",
+  "Boho Floral Maxi",
+  "Red Ruffle Midi",
+  "Maroon Glam Gown",
+  "Blue Cross Wrap",
+  "Elegant Ruby Gown",
+  "Velvet Red Flow",
+  "Golden Knit Dress",
+  "Layered Green Flare",
+  "Black Romance Dress",
+  "Sunshine Yellow Dress",
+  "Rosy Evening Gown"
+];
+
+
+const dressPrices = [
+1077, 1144, 426, 978, 1043, 601, 1152, 491, 775, 1168, 832, 947, 745, 1101, 1192, 412, 1073, 879, 689, 1157, 1148, 994, 437, 519, 1163, 817, 912, 1079, 1107, 998, 728, 1032, 1182, 457, 622, 902, 1114, 1176, 808, 1126, 891, 1172, 1159, 1083, 1186, 764, 467, 618, 1119, 693, 839, 495, 1047
+, 1154, 1160, 1145, 1122, 1131, 1108, 1187, 1153, 1169, 1118, 1136, 1175, 1190, 1184, 1191, 1158, 1149, 1137, 1123, 1115, 1106, 1099, 1088, 1077
+];
+
+dressImages.forEach((imageUrl, i) => {
+  const price = dressPrices[i]; 
+  container.innerHTML += `
+    <div class="product" onclick="location.href='product.html?id=${i + 1}'">
+      <img src="${imageUrl}" alt="${dressTitles[i]}" />
+      <div class="product-title">${dressTitles[i]}</div>
+      <div class="product-price">₹${price}</div>
+    </div>
+  `;
+})
+
+  </script>
+  
+
+</body>
+</html>

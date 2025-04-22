@@ -87,8 +87,6 @@
     .product-card:hover {
       transform: scale(1.05) rotate(-1deg);
     }
-    
-
     .add-btn:hover {
       background-color: #f77f00;
     }
@@ -100,17 +98,73 @@
   }
 </script>
 <script>
-  function addToCart(product) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.push(product);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert("Item added to cart!");
+  let cart = [];
+
+  function addToCart(productName, price) {
+    cart.push({ name: productName, price: price });
+    updateCartCount();
+    renderCartItems();
+    saveCartToLocalStorage();
+  }
+
+  function updateCartCount() {
+    document.getElementById('cart-count').innerText = cart.length;
+  }
+
+  function showCart() {
+    document.getElementById('cart-panel').style.display = 'block';
+    renderCartItems();
+  }
+
+  function hideCart() {
+    document.getElementById('cart-panel').style.display = 'none';
+  }
+
+  function renderCartItems() {
+    const cartList = document.getElementById('cart-items');
+    cartList.innerHTML = ''; 
+  
+    cart.forEach((item, index) => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        ${item.name} - ₹${item.price}
+        <button onclick="removeFromCart(${index})" style="margin-left:10px;">❌</button>
+      `;
+      cartList.appendChild(li);
+    });
+  }
+  function removeFromCart(index) {
+    cart.splice(index, 1); 
+    updateCartCount();
+    renderCartItems();
+    saveCartToLocalStorage();
+  }
+    
+
+  function saveCartToLocalStorage() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
+
+  function loadCartFromLocalStorage() {
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+      cart = JSON.parse(storedCart);
+      updateCartCount();
+    }
   }
 </script>
 
+
 <body>
+  <button onclick="showCart()" id="cart-button">🛒 Cart (<span id="cart-count">0</span>)</button>
 
   <header>🧸 Kids Section</header><br>
+  <div id="cart-panel" style="display:none; position:fixed; right:0; top:0; width:300px; height:100%; background:#f5f5f5; box-shadow:-2px 0 5px rgba(0,0,0,0.1); padding:20px; overflow-y:auto;">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <button onclick="hideCart()">Close</button>
+  </div>
+  
 
   <header>TSHIRTS</header>
     <section class="tshirts">
@@ -121,13 +175,8 @@
           <h3>GREY TEE</h3>
           <p>8-12yrs</p>
           <p>₹299</p>
-      
-          <button class="add-btn"onclick="addToCart({
-            image: 'images/kids1.jpg',
-            description: 'Cute Kids Dress',
-            price: 999,
-            rating: 4.7
-          })">Add to cart</button>
+          <button class="add-btn" onclick="addToCart('GREY TEE', 299)">Add to cart</button>
+
         </div>
       </div>
       <div class="product-card">
@@ -136,7 +185,7 @@
           <h3>PINK UNICORN TEE</h3>
           <p>8-13yrs</p>
           <p>₹399</p>
-          <button class="add-btn">Add to cart</button>
+          <button class="add-btn" onclick="addToCart('PINK UNICORN TEE', 399)">Add to cart</button>
         </div>
       </div>
       <div class="product-card">
@@ -145,7 +194,8 @@
           <h3>CUTE DINOSAUR TEE</h3>
           <p>6-10yrs</p>
           <p>₹299</p>
-          <button class="add-btn">Add to cart</button>
+          <button class="add-btn" onclick="addToCart('CUTE DINOSAUR TEE', 299)">Add to cart</button>
+          
         </div>
       </div>
       <div class="product-card">
@@ -154,7 +204,7 @@
           <h3>BLUE SUPERMAN TEE</h3>
           <p>5-8yrs</p>
           <p>₹199</p>
-          <button class="add-btn">Add to cart</button>
+          <button class="add-btn" onclick="addToCart('BLUE SUPERMAN TEE', 199)">Add to cart</button>
         </div>
       </div>
       <div class="product-card">
@@ -163,7 +213,7 @@
           <h3>PINK BARBIE TEE</h3>
           <p>6-10yrs</p>
           <p>₹199</p>
-          <button class="add-btn">Add to cart</button>
+          <button class="add-btn" onclick="addToCart('PINK BARBIE TEE', 199)">Add to cart</button>
         </div>
       </div>
       <div class="product-card">
@@ -172,7 +222,7 @@
           <h3>LAVENDER UNICORN TEE</h3>
           <p>8-10yrs</p>
           <p>₹199</p>
-          <button class="add-btn">Add to cart</button>
+          <button class="add-btn" onclick="addToCart('LAVENDER UNICORN TEE', 199)">Add to cart</button>
         </div>
       </div>
       <div class="product-card">
@@ -181,7 +231,7 @@
           <h3>MICKEY MOUSE TEE</h3>
           <p>7-10yrs</p>
           <p>₹299</p>
-          <button class="add-btn">Add to cart</button>
+          <button class="add-btn" onclick="addToCart('MICKEY MOUSE TEE', 299)">Add to cart</button>
         </div>
       </div>
       <div class="product-card">
@@ -190,7 +240,7 @@
           <h3>SOCCER PLAYER TEE</h3>
           <p>8-12yrs</p>
           <p>₹399</p>
-          <button class="add-btn">Add to cart</button>
+          <button class="add-btn" onclick="addToCart('SOCCER PLAYER TEE', 399)">Add to cart</button>
         </div>
       </div>
       <div class="product-card">
@@ -199,7 +249,7 @@
           <h3>NAVY BLUE TEE</h3>
           <p>8-12yrs</p>
           <p>₹299</p>
-          <button class="add-btn">Add to cart</button>
+          <button class="add-btn" onclick="addToCart('NAVY BLUE TEE', 299)">Add to cart</button>
         </div>
       </div>
       <div class="product-card">
@@ -208,7 +258,7 @@
           <h3>PINK GIRL TEE</h3>
           <p>6-10yrs</p>
           <p>₹299</p>
-          <button class="add-btn">Add to cart</button>
+          <button class="add-btn" onclick="addToCart('PINK GIRL TEE', 299)">Add to cart</button>
         </div>
       </div>
     </section>
@@ -222,7 +272,7 @@
           <h3>ORANGE PUFFER JACKET</h3>
           <p>6-9yrs</p>
           <p>₹599</p>
-          <button class="add-btn">Add to cart</button>
+          <button class="add-btn" onclick="addToCart('ORANGE PUFFER JACKET', 599)">Add to cart</button>
         </div>
       </div>
     
@@ -233,7 +283,7 @@
         <h3>PINK PUFFER JACKET</h3>
         <p>8-12yrs</p>
         <p>₹699</p>
-        <button class="add-btn">Add to cart</button>
+        <button class="add-btn" onclick="addToCart('PINK PUFFER JACKET', 699)">Add to cart</button>
       </div>
     </div>
 
@@ -243,7 +293,7 @@
         <h3>DENIM JACKET</h3>
         <p>8-12yrs</p>
         <p>₹599</p>
-        <button class="add-btn">Add to cart</button>
+        <button class="add-btn" onclick="addToCart('DENIM JACKET', 599)">Add to cart</button>
       </div>
     </div><div class="product-card">
       <img src="https://i.pinimg.com/originals/ed/6c/fc/ed6cfc310e3f5cfd9174b7a429978d28.jpg" alt="casual jackets for winters">
@@ -251,7 +301,7 @@
         <h3>BROWN JACKET</h3>
         <p>8-12yrs</p>
         <p>₹599</p>
-        <button class="add-btn">Add to cart</button>
+        <button class="add-btn" onclick="addToCart('BROWN JACKET', 599)">Add to cart</button>
       </div>
     </div>
     <div class="product-card">
@@ -260,7 +310,7 @@
         <h3>BLUE PUFFER JACKET</h3>
         <p>8-12yrs</p>
         <p>₹699</p>
-        <button class="add-btn">Add to cart</button>
+        <button class="add-btn" onclick="addToCart('BLUE PUFFER JACKET', 699)">Add to cart</button>
       </div>
     </div>
 
@@ -270,7 +320,7 @@
         <h3>RED-BLACK JACKET</h3>
         <p>6-10yrs</p>
         <p>₹999</p>
-        <button class="add-btn">Add to cart</button>
+        <button class="add-btn" onclick="addToCart('RED-BLACK JACKET', 999)">Add to cart</button>
       </div>
     </div>
 
@@ -280,7 +330,7 @@
         <h3>DUSTY ROSE JACKET</h3>
         <p>10-13yrs</p>
         <p>₹799</p>
-        <button class="add-btn">Add to cart</button>
+        <button class="add-btn" onclick="addToCart('DUSTY ROSE JACKET', 799)">Add to cart</button>
       </div>
     </div>
     <div class="product-card">
@@ -289,7 +339,7 @@
         <h3>LIGHT RED JACKET</h3>
         <p>8-12yrs</p>
         <p>₹699</p>
-        <button class="add-btn">Add to cart</button>
+        <button class="add-btn" onclick="addToCart('LIGHT RED JACKET ', 699)">Add to cart</button>
       </div>
     </div>
     <div class="product-card">
@@ -298,7 +348,7 @@
         <h3>BLACK LEATHER JACKET</h3>
         <p>8-12yrs</p>
         <p>₹799</p>
-        <button class="add-btn">Add to cart</button>
+        <button class="add-btn" onclick="addToCart('BLACK LEATHER JACKET', 799)">Add to cart</button>
       </div>
     </div>
     <div class="product-card">
@@ -307,7 +357,7 @@
         <h3>BLACK LEATHER JACKET</h3>
         <p>6-10yrs</p>
         <p>₹999</p>
-        <button class="add-btn">Add to cart</button>
+        <button class="add-btn" onclick="addToCart('BLACK LEATHER JACKET', 999)">Add to cart</button>
       </div>
     </div></section>
    
@@ -319,7 +369,7 @@
         <h3>KHAKI COLOR PANTS</h3>
         <p>8-12yrs</p>
         <p>₹999</p>
-        <button class="add-btn">Add to cart</button>
+        <button class="add-btn" onclick="addToCart('KHAKI COLOR PANTS', 999)">Add to cart</button>
       </div>
     </div>
     <div class="product-card">
@@ -328,7 +378,7 @@
         <h3>DENIM PANTS</h3>
         <p>8-12yrs</p>
         <p>₹999</p>
-        <button class="add-btn">Add to cart</button>
+        <button class="add-btn" onclick="addToCart('DENIM PANTS', 999)">Add to cart</button>
       </div>
     </div>
     <div class="product-card">
@@ -337,7 +387,7 @@
         <h3>PINK BELL BOTTOMS</h3>
         <p>6-10yrs</p>
         <p>₹999</p>
-        <button class="add-btn">Add to cart</button>
+        <button class="add-btn" onclick="addToCart('PINK BELL BOTTOMS', 999)">Add to cart</button>
       </div>
     </div>
     <div class="product-card">
@@ -346,7 +396,7 @@
         <h3>PARCHMENT BELL BOTTOMS</h3>
         <p>6-10yrs</p>
         <p>₹999</p>
-        <button class="add-btn">Add to cart</button>
+        <button class="add-btn" onclick="addToCart('PARCHMENT BELL BOTTOMS', 999)">Add to cart</button>
       </div>
     </div>
     <div class="product-card">
@@ -355,7 +405,7 @@
         <h3>DENIM WINTER PANTS</h3>
         <p>8-12yrs</p>
         <p>₹999</p>
-        <button class="add-btn">Add to cart</button>
+        <button class="add-btn" onclick="addToCart('DENIM WINTER PANTS', 999)">Add to cart</button>
       </div>
     </div>
     </section>

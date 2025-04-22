@@ -113,3 +113,75 @@
 
   <label for="quantity">Quantity:</label>
   <input type="number" id="quantity" class="selector" value="1" min="1" max="10" />
+
+  <br><br>
+
+ 
+     <script>
+      
+      const container = document.getElementById('products');
+       const params = new URLSearchParams(window.location.search);
+       const id = parseInt(params.get("id")) - 1;
+      
+       const dressImages = [
+      "https://manyavar.scene7.com/is/image/manyavar/Janhvi_Kapoor_Lehenga_High_res_20-09-2024-04-38:283x395?&dpr=on,2",
+      "https://www.centofashion.com/images/thumbs/0008260.jpg",
+      "https://assets.myntassets.com/w_412,q_60,dpr_2,fl_progressive/assets/images/26461148/2023/12/16/7e12940c-cd7b-4a8d-b955-0830c5b1d82d1702715459552AAHWANBlackPuffSleeveFitFlareMiniDress1.jpg",
+      "https://img.tatacliq.com/images/i22//437Wx649H/MP000000025301329_437Wx649H_202502221201371.jpeg",
+      "https://www.dynamiteclothing.com/dw/image/v2/BDRP_PRD/on/demandware.static/-/Sites-root_dynamite_catalog/default/dw13c7dc2e/images/100095459/100095459_0QO_1920x2880.jpg?sw=320&sh=480",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRG7pFqVDKiYd2C9YttyUj7EW8BrU-zwl6z2hlw9f4f-DnVoE3zCESopvHLVyQJprPd_A&usqp=CAU",
+      "https://rukminim2.flixcart.com/image/850/1000/xif0q/kurta/p/a/t/l-kurta-new-set-1-traditional-fashion-original-imagmxju2hydzuaz.jpeg?q=20&crop=false",
+      "https://c.ndtvimg.com/gws/ms/the-outfits-worn-by-heeramandi-women/assets/4.jpeg?1712733691",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR74GAGFBQ7hSJkukpnm-fyr7F_4V0gCUPiaw&s",
+      "https://images-cdn.ubuy.co.in/6555c45897843a1d3575cbad-alikey-spaghetti-straps-prom-dresses.jpg",
+      "https://www.mymartini.in/pub/media/catalog/product/cache/d4994f7429ee04aaa6b8d30195df5b07/m/a/mart3133_1.jpg",
+      "https://5.imimg.com/data5/ANDROID/Default/2022/10/KK/ZR/BG/46413479/product-jpeg.jpg",
+      "https://www.kalkifashion.com/blogs/wp-content/uploads/2023/07/persian_red_anarkali_in_georgette-sg158818_2_-729x1024.jpeg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSABgEoWNftSl0Mb1msPAI29weFYZnksHHIZw&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtlIEdEkdHh2L6k69W_7ap3w83hY4IL9MHkq1oyLvIKIUkwndsSYqyPDJUeQeu0SpQXNA&usqp=CAU",
+      "https://www.adiashco.com/cdn/shop/files/il_fullxfull.5936753182_kqnr.jpg?v=1720505027",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqhF0BISFtvrO2sFnk1dj9fCxWVICYuPokmQ&s",
+      "https://m.media-amazon.com/images/I/715siMd9J4L._AC_UY1100_.jpg",
+      "https://www.hatkay.com/cdn/shop/articles/Punjabi_Suits.png?v=1607747653",
+      "https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/25241904/2023/9/29/dc7f5f8c-c4bb-41b0-95a1-1eab227401451695978096199RolyPolyOffWhiteFloralPrintCottonTop1.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJUG3bu2_iQ4WwnAnO-odqrS69IfQx6Z8-ow&s",
+      "https://images.meesho.com/images/products/140343536/7tyde_512.webp",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfHgRpEI1TMr5t5_PjnLaeDJRhglgc7aohLg&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeWf5MhfsqZrTnu8iGJrKCdRSl2zvfVrDFhoqN0EKj7Sq43bNpYHehsNpEWqBiqqA7ANY&usqp=CAU",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI5aXWT-1vu24YsAdxSnvJbKk26zHauzOkqg&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjt8itsR7YKRs9yC_YtU1J5sqJXBdpdv1KVg&s",
+      "https://images-cdn.ubuy.co.in/661da55281bae910cf1b5289-women-s-leather-skirt-midi-pencil.jpg",
+      "https://assets.ajio.com/medias/sys_master/root/20240301/Cjad/65e0e48f16fd2c6e6a2fc7bc/-473Wx593H-467124226-white-MODEL6.jpg",
+      "https://ishhaara.com/cdn/shop/files/ishhaara-mallika-jaan-heeramandi-look-inspired-jewellery-33751753826492.jpg?v=1718118936",
+      "https://blackinvogue.com/wp-content/uploads/2023/03/IMG_2227-1-min-min-scaled.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYZdSCYza5uUiosMqIcPl9F-Ro87EE5zGeSg&s",
+      "https://assets.ajio.com/medias/sys_master/root/20240526/kbCA/6653639e16fd2c6e6a2750f9/-473Wx593H-700012880-pink-MODEL4.jpg",
+      "https://img.tatacliq.com/images/i21//437Wx649H/MP000000024718185_437Wx649H_202412132028291.jpeg",
+      "https://grattan.scene7.com/is/image/OttoUK/300w/Vivance-Bandeau-Culotte-Jumpsuit~50339668FRSP.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUbRM0jkIqh83leWJcdatbRN80XdGVPljUMg&s",
+      "https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/31644192/2025/2/13/ecb7092a-e4fa-4353-9e72-11fbac3528d71739427468935-glitchez-Women-Tops-141739427468341-1.jpg",
+      "https://www.labelbyanuja.in/cdn/shop/files/9769D867-49C6-4343-AD48-ABB1CE355218.jpg?v=1723478814&width=800",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRILA9VAY1oy4c8EjRW-cq8F5YfUKJmhnmLAA&s",
+      "https://media.mutualart.com/Images//2012_11/10/14/141459856/e3c19bdf-7e54-4366-b94a-bf3c38925b41.Jpeg",
+      "https://image.made-in-china.com/2f0j00kacbvRAIhWrV/Fashion-Shorts-Women-Short-Pants-Ladies-Shorts-Jeans.jpg",
+      "https://assets.ajio.com/medias/sys_master/root/20240625/Y2rB/667a125e1d763220fa17e416/-473Wx593H-466853268-brown-MODEL.jpg",
+      "https://kosha.co/cdn/shop/files/Shopify_Images_Template_-_2024-09-08T211139.279.jpg?v=1738724621",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV0saSlrA3dqWCg1muyyzK6N-IIfBP-YHzng&s",
+      "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRgb70sdvfXoLGT088cL1ZlZvHejHOCj_jJm40NGgTMcZ_nDMDbyY53aBNRHBB78LPzpeFkO92MI3L6cgoz02eUdU3VrsZEJu-l05Y6ovxtTsAxJLaJZBdK6Q&usqp=CAc",
+      "https://clothsvilla.com/cdn/shop/products/OrangeColorTrendyGeorgetteFloralPrintWomen_sGown_2_1024x1024.jpg?v=1661683085",
+      "https://cdn.shopify.com/s/files/1/0217/9066/files/ARIZONA-WHITE-ORCHID-PRINT-MAXI-DRESS-1_720x.jpg?v=1734060153",
+      "https://images.jdmagicbox.com/quickquotes/images_main/-88g2kb91.jpg",
+      "https://cdn0.weddingwire.in/article/3373/original/1280/jpg/123733-toraniofficial.jpeg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3cWbSbTI7FtHOx932nx0bnbHU3F6LYFWrpw&s",
+      "https://mediahub.debenhams.com/baa10179_multi_xl?qlt=80&w=320&h=480&dpr=1&fit=ctn",
+      "https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/92daa21d3aa37eaa688f9c5f309639c3.jpg?imageView2/2/w/500/q/60/format/webp",
+      "https://www.alamodelabel.in/cdn/shop/files/C7B6E733-6760-4FA4-9453-6EFD7EC66B05_600x.jpg?v=1740502654",
+      "https://i.pinimg.com/736x/a7/f9/0d/a7f90df64e990123a726dc1eea13000d.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN4x6H_OmBtgsIeg-xrO3hTj3nv0FPoGRIqg&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN4x6H_OmBtgsIeg-xrO3hTj3nv0FPoGRIqg&s",
+      "https://www.alamodelabel.in/cdn/shop/files/4F1F0025-7CA7-4266-944E-42AF35727660_600x.jpg?v=1735460744",
+      "https://www.fabfunda.com/blog/wp-content/uploads/2023/10/Asymmetrical-Gowns-630x840.jpg",
+      "https://www.alamodelabel.in/cdn/shop/files/090BEBF8-6C84-4C56-8D35-ECC225934A6B_600x.jpg?v=1740502654",
+      "https://5.imimg.com/data5/SELLER/Default/2023/4/298880061/EY/MO/ZC/144923424/26-1-8d6e8424-3ad8-4fef-8329-dc4ee5234302-500x500.jpg",
+      "https://img101.savana.com/goods-pic/91079b3d1adc4289a877656560f6eaa6UR_w540_h720_q85.webp",
+       ];

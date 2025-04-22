@@ -197,7 +197,9 @@ button.white{
 }
 #newsletter .Form{
     display:flex;
-    width: 40%;
+    
+    
+    width:40%;
 }
 #newsletter input{
     

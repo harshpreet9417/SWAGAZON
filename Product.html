@@ -238,3 +238,23 @@
         "Soft, shimmering rose-toned dress with an elegant fit.",
         
        ];
+
+       function getRandomRating() {
+       const rating = (3 + Math.random() * 2).toFixed(1);
+       return `⭐️ ${rating}/5`;
+     }
+     
+
+     function getRandomPrice() {
+        const price = Math.floor(499 + Math.random() * 1500); // Random price between ₹499 - ₹1999
+          return price;
+        }
+     
+     if (id >= 0 && id < dressImages.length) {
+       const product = {
+         id: id + 1,
+         image: dressImages[id],
+         rating: getRandomRating(),
+         price: getRandomPrice(),
+         description: descriptions[id % descriptions.length]
+       };

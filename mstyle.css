@@ -11,6 +11,18 @@
 
 
 }
+#header2{
+    background-image: url("https://img.freepik.com/premium-vector/transparant-corner-shape-pasta-colorful-abstract-geometric-design-background_181182-22062.jpg");
+    width:100%;
+    height:40vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction:column ;
+    padding: 14px;
+
+}
 #header h2,
 #header p{
     color: #fff;

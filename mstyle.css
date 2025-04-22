@@ -11,3 +11,18 @@
 
 
 }
+#header h2,
+#header p{
+    color: #fff;
+
+}
+#product1{
+    text-align: center;
+
+}
+#product1 .Pro-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    flex-wrap: wrap;
+}

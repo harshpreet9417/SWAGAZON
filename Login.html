@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Swagazon Login</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+    :root {
+      --bg: #eef2f7;
+      --primary: #111827;
+      --accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --error: #ef4444;
+      --card-bg: rgba(255, 255, 255, 0.75);
+      --shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+  background: linear-gradient(-45deg, #ff00cc, #3333ff, #00f0ff, #ffcc00);
+  background-size: 400% 400%;
+  animation: neonMove 10s ease infinite;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+@keyframes neonMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+    .login-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 3rem 2.5rem;
+      width: 100%;
+      max-width: 400px;
+      color: var(--primary);
+      text-align: center;
+    }
+
+    .login-card h1 {
+      margin-bottom: 1.5rem;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 1.2rem 1rem 0.6rem;
+      border: none;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.6);
+      font-size: 16px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .input-group label {
+      position: absolute;
+      left: 1rem;
+      top: 1.1rem;
+      font-size: 14px;
+      color: #6b7280;
+      pointer-events: none;
+      transition: all 0.2s ease;
+    }
+
+    .input-group input:focus + label,
+    .input-group input:not(:placeholder-shown) + label {
+      top: 0.4rem;
+      font-size: 12px;
+      color: var(--accent);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 1rem;
+      background-color: var(--accent);
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--accent-hover);
+      transform: scale(1.02);
+    }
+
+    .error-message {
+      margin-top: 0.8rem;
+      color: var(--error);
+      font-size: 14px;
+      display: none;
+    }
+
+    @media (max-width: 500px) {
+      .login-card {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <h1>Sign in to Swagazon</h1>
+
+    <div class="input-group">
+      <input type="text" id="username" placeholder=" " autocomplete="off" />
+      <label for="username">Username</label>
+    </div>
+
+    <div class="input-group">
+      <input type="password" id="password" placeholder=" " autocomplete="off" />
+      <label for="password">Password</label>
+    </div>
+
+    <button class="btn" onclick="checkLogin()">Sign In</button>
+    <div id="error" class="error-message">Invalid username or password.</div>
+  </div>
+
+  <script>
+    function checkLogin() {
+      const user = document.getElementById("username").value.trim();
+      const pass = document.getElementById("password").value.trim();
+      const errorDiv = document.getElementById("error");
+
+      if (user === "SWAGAZON25" && pass === "IH3") {
+        window.location.href = "Untitled.html";
+      } else {
+        errorDiv.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>

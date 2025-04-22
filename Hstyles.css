@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Swagazon - Your Favorite Store</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel = "stylesheet" href="Hstyles.css">
-  <style>
+
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -97,48 +89,3 @@
       font-size: 0.9rem;
       margin-top: 2rem;
     }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Swagazon</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Shop</a>
-      <a href="#">Contact</a>
-      <a href="#" onclick="alert('Cart page coming soon!')">🛒 Cart</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h2>Shop the Swag, Only on Swagazon</h2>
-    <p>Fresh styles, hot deals & everything in between. Dive into Swagazon!</p>
-    <button>Explore Now</button>
-  </section>
-
-  <main class="product-grid">
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1585386959984-a4155224a6fa?auto=format&fit=crop&w=800&q=80" alt="Cool T-Shirt" />
-      <h3>Cool T-Shirt</h3>
-      <p>$19.99</p>
-      <button>Add to Cart</button>
-    </div>
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1618354691373-d85194fe526b?auto=format&fit=crop&w=800&q=80" alt="Stylish Hat" />
-      <h3>Stylish Hat</h3>
-      <p>$14.99</p>
-      <button>Add to Cart</button>
-    </div>
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1606811842246-503a3da547f9?auto=format&fit=crop&w=800&q=80" alt="Sneakers" />
-      <h3>Sneakers</h3>
-      <p>$49.99</p>
-      <button>Add to Cart</button>
-    </div>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Swagazon Inc. All rights reserved. | Follow us @Swagazon</p>
-  </footer>
-</body>
-</html>

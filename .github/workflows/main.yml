@@ -1,49 +1,25 @@
-E-commerce Website Frontend - YAML Config 
- 
-project: 
-  name: E-commerce Website  
-  framework: None 
-  language: html, css, javascript 
-  package_manager: None 
- 
-structure: 
-  src: 
-    - assets: 
-        - images/ 
-        - styles/ 
-    - components: 
-       -Html:for the structure 
-       - Css:for styling
-       -Javascript:for dynamic behavior
-    - pages: 
-        - Hindex.html
-        -Login.html
-         -kidssection.html
-         -Mindex.html 
-         - about.html
-         -Dresses.html
-         -Product.html 
-         - cart.html 
-         
-    - scripts: 
--Hscript.js
+name: Welcome to SWAGAZON
 
-    - styles: 
--Hstyle.css
--Mstyle.css
+on:
+  pull_request_target:
+    types: [opened]
+  issues:
+    types: [opened]
 
-dependencies: 
-  Node.js 
- 
-devDependencies: 
-  live-Server 
- 
-scripts: 
-  Node.js 
- 
-environment: 
-  port: 5500  
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greet the SWAGAZON contributor
+        uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: |
+            👋 Welcome to **SWAGAZON**!  
+            Thank you for opening your first issue. Our team will review it soon.  
+            Stay tuned and feel free to contribute more! 💡
 
-description: > 
-  This is the frontend of an E-commerce website. It allows users to browse products, add items to the cart, and proceed to checkout. Built using HTML, CSS, and JavaScript. 
-
+          pr-message: |
+            🎉 Yay! Your first pull request to **SWAGAZON**!  
+            Thank you for your contribution 🚀  
+            We appreciate your effort and can’t wait to review it. 💜

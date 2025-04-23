@@ -24,15 +24,15 @@
     }
 
     body {
-        background: linear-gradient(-45deg, #ff00cc, #3333ff, #00f0ff, #ffcc00);
-        background-size: 400% 400%;
-        animation: neonMove 10s ease infinite;
-        font-family: 'Inter', sans-serif;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #fff;
+  background: linear-gradient(-45deg, #ff00cc, #3333ff, #00f0ff, #ffcc00);
+  background-size: 400% 400%;
+  animation: neonMove 10s ease infinite;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
 }
 
 @keyframes neonMove {
@@ -141,7 +141,7 @@
     </div>
 
     <button class="btn" onclick="checkLogin()">Sign In</button>
-    <div id="error" class="error-message">Invalid username or password. Please Try Again</div>
+    <div id="error" class="error-message">Invalid username or password.</div>
   </div>
 
   <script>
@@ -151,7 +151,7 @@
       const errorDiv = document.getElementById("error");
 
       if (user === "SWAGAZON25" && pass === "IH3") {
-        window.location.href = "HIndex.html";
+        window.location.href = "Hindex.html";
       } else {
         errorDiv.style.display = "block";
       }

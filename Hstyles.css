@@ -81,6 +81,10 @@
     .product-card button:hover {
       background-color: #e68a00;
     }
+  html {
+    scroll-behavior: smooth;
+  }
+
     footer {
       background-color: #232f3e;
       color: white;

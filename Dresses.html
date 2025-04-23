@@ -213,7 +213,7 @@ const dressPrices = [
 dressImages.forEach((imageUrl, i) => {
   const price = dressPrices[i]; 
   container.innerHTML += `
-    <div class="product" onclick="location.href='product.html?id=${i + 1}'">
+    <div class="product" onclick="location.href='Product.html?id=${i + 1}'">
       <img src="${imageUrl}" alt="${dressTitles[i]}" />
       <div class="product-title">${dressTitles[i]}</div>
       <div class="product-price">₹${price}</div>
